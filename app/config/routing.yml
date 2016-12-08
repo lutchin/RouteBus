@@ -1,0 +1,4 @@
+bus_bus:
+    resource: "@BusBusBundle/Resources/config/routing.yml"
+    prefix:   /
+

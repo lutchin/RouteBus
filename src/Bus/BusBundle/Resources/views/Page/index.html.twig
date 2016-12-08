@@ -1,0 +1,114 @@
+
+{% extends 'BusBusBundle::layout.html.twig' %}
+
+{% block body %}
+    <div id="map"></div>
+
+    <script type='text/javascript'>
+
+        //Определяем карту, координаты центра и начальный масштаб
+        var map = L.map('map').setView([55.167753, 30.196887], 12);
+
+        //Добавляем на нашу карту слой YandexStreetMap
+        L.tileLayer('http://vec{s}.maps.yandex.net/tiles?l=map&v=4.55.2&z={z}&x={x}&y={y}&scale=2&lang=ru_RU', {
+            subdomains: ['01', '02', '03', '04'],
+            attribution: '<a href="{{ asset('http://www.yandex.ru') }}" target="_blank">Яндекс</a>',
+            reuseTiles: true,
+            updateWhenIdle: false
+        }).addTo(map);
+
+        map.options.crs = L.CRS.EPSG3395;
+        L.Icon.Default.imagePath = "/leaflet";
+
+
+        var polyline = L.polyline([[55.162374, 30.112111],[55.163528, 30.117926], [55.173545, 30.147029],[55.172088, 30.161987],[55.172100, 30.163275], [55.171363, 30.166172],
+            [55.159670, 30.170048], [55.166378, 30.194591], [55.167753, 30.196887], [55.173548, 30.199598], [55.171865, 30.212841], [55.162818, 30.209360], [55.161455, 30.209768],
+            [55.156995, 30.214918], [55.156017, 30.215379], [55.153473, 30.214714], [55.152245, 30.215443], [55.150709, 30.219370], [55.150443, 30.221999],  [55.148944, 30.226634]],
+                {color: 'red',
+                    weight: 10,
+                    opacity: 0.5,
+                    smoothFactor: 1}).addTo(map);
+        map.fitBounds(polyline.getBounds());
+
+        var marker = L.marker([55.162268, 30.111972]
+        ).addTo(map);
+        var marker_1 = L.marker([55.163709, 30.118543]
+        ).addTo(map);
+        var marker_2= L.marker([55.165586, 30.123968]
+        ).addTo(map);
+        var marker_4= L.marker([55.167803, 30.130329]
+        ).addTo(map);
+        var marker_5= L.marker([55.170072, 30.136643]
+        ).addTo(map);
+        var marker_6= L.marker([55.173407, 30.150649]
+        ).addTo(map);
+        var marker_7= L.marker([55.172841, 30.155680]
+        ).addTo(map);
+        var marker_8= L.marker([55.170765, 30.166431]
+        ).addTo(map);
+        var marker_9= L.marker([55.159830, 30.169821]
+        ).addTo(map);
+        var marker_10= L.marker([55.161457, 30.175922]
+        ).addTo(map);
+        var marker_11= L.marker([55.163926, 30.185321]
+        ).addTo(map);
+        var marker_12= L.marker([55.166505, 30.194741]
+        ).addTo(map);
+        var marker_13= L.marker([55.170804, 30.198367]
+        ).addTo(map);
+        var marker_14= L.marker([55.173592, 30.199805]
+        ).addTo(map);
+        var marker_15= L.marker([55.172684, 30.206907]
+        ).addTo(map);
+        var marker_16= L.marker([55.171888, 30.212856]
+        ).addTo(map);
+        var marker_17= L.marker([55.167736, 30.211225]
+        ).addTo(map);
+        var marker_18= L.marker([55.163609, 30.209680]
+        ).addTo(map);
+        var marker_19= L.marker([55.161373, 30.209809]
+        ).addTo(map);
+        var marker_20= L.marker([55.159481, 30.212083]
+        ).addTo(map);
+        var marker_21= L.marker([55.157257, 30.214689]
+        ).addTo(map);
+        var marker_22= L.marker([55.153301, 30.214775]
+        ).addTo(map);
+        var marker_23= L.marker([55.150888, 30.218710]
+        ).addTo(map);
+        var marker_24= L.marker([55.149156, 30.226226]
+        ).addTo(map);
+
+        marker.bindPopup("<b>Витебскречтранс</b>").openPopup();
+        marker_1.bindPopup("<b>9-я Социалистическая улица</b>").openPopup();
+        marker_2.bindPopup("<b>Улица Максима Горького</b>").openPopup();
+        marker_4.bindPopup("<b>Улица 39-й армии</b>").openPopup();
+        marker_5.bindPopup("<b>Витебская ТЭЦ</b>").openPopup();
+        marker_6.bindPopup("<b>2-я горбольница</b>").openPopup();
+        marker_7.bindPopup("<b>Пролетарская площадь</b>").openPopup();
+        marker_8.bindPopup("<b>Шёлковый комбинат</b>").openPopup();
+        marker_9.bindPopup("<b>Текстильная улица</b>").openPopup();
+        marker_10.bindPopup("<b>ТЦ «Корона»</b>").openPopup();
+        marker_11.bindPopup("<b>Зеленогурская улица</b>").openPopup();
+        marker_12.bindPopup("<b>Библиотека имени Лынькова</b>").openPopup();
+        marker_13.bindPopup("<b>Лучёса (Мост имени Шмырёва)</b>").openPopup();
+        marker_14.bindPopup("<b>Проспект Черняховского</b>").openPopup();
+        marker_15.bindPopup("<b>Гостиница «Лучёса»</b>").openPopup();
+        marker_16.bindPopup("<b>Микрорайон Юг-5</b>").openPopup();
+        marker_17.bindPopup("<b>Кинотеатр «Бригантина»</b>").openPopup();
+        marker_18.bindPopup("<b>Микрорайон «Юг-6»</b>").openPopup();
+        marker_19.bindPopup("<b>Улица Воинов-Интернационалистов</b>").openPopup();
+        marker_20.bindPopup("<b>СШ №45</b>").openPopup();
+        marker_21.bindPopup("<b>Роддом</b>").openPopup();
+        marker_22.bindPopup("<b>Станция Лучёса</b>").openPopup();
+        marker_23.bindPopup("<b>Бульвар</b>").openPopup();
+        marker_24.bindPopup("<b>Мкрн. Медцентр</b>").openPopup();
+
+
+
+
+
+
+
+    </script>
+{% endblock %}

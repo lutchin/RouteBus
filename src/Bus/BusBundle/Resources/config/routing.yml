@@ -1,0 +1,13 @@
+
+BusBusBundle_homepage:
+    path:     /
+    defaults: { _controller: "BusBusBundle:Page:index" }
+    requirements:
+         methods:  GET
+
+
+BusBusBundle_one:
+    path:   /one
+    defaults: { _controller: "BusBusBundle:Page:one" }
+    requirements:
+         methods:  GET

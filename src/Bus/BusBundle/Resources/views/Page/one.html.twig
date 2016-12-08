@@ -1,0 +1,134 @@
+{% extends 'BusBusBundle::layout.html.twig' %}
+
+{% block body %}
+    <div id="map"></div>
+
+    <script type='text/javascript'>
+
+        //Определяем карту, координаты центра и начальный масштаб
+        var map = L.map('map').setView([55.201679, 30.209690], 12);
+
+        //Добавляем на нашу карту слой YandexStreetMap
+        L.tileLayer('http://vec{s}.maps.yandex.net/tiles?l=map&v=4.55.2&z={z}&x={x}&y={y}&scale=2&lang=ru_RU', {
+            subdomains: ['01', '02', '03', '04'],
+            attribution: '<a href="{{ asset('http://www.yandex.ru') }}" target="_blank">Яндекс</a>',
+            reuseTiles: true,
+            updateWhenIdle: false
+        }).addTo(map);
+
+        map.options.crs = L.CRS.EPSG3395;
+        L.Icon.Default.imagePath = "/leaflet";
+
+
+        var polyline = L.polyline([[55.226676, 30.211415],[55.225685, 30.211465], [55.224982, 30.211253],[55.224423, 30.210889],[55.223175, 30.208995], [55.222660, 30.208656],
+                    [55.218168, 30.208905], [55.216367, 30.209866], [55.215011, 30.209904], [55.212022, 30.210524], [55.210857, 30.209939], [55.210547, 30.210111], [55.209982, 30.211098],
+                    [55.209366, 30.211237], [55.205370, 30.208853], [55.204214, 30.213188], [55.201679, 30.209690], [55.201728, 30.207577], [55.192676, 30.206206],  [55.192663, 30.206311],
+                    [55.194873, 30.188157], [55.197646, 30.189055], [55.198456, 30.188196], [55.199585, 30.183604], [55.199045, 30.182789], [55.198849, 30.179055], [55.191312, 30.181287],
+                    [55.179673, 30.150517],[55.178568, 30.150045],[55.174343, 30.151063],[55.173311, 30.150763],[55.173545, 30.147029],[55.163528, 30.117926],[55.162374, 30.112111]],
+                {color: 'red',
+                    weight: 10,
+                    opacity: 0.5,
+                    smoothFactor: 1}).addTo(map);
+        map.fitBounds(polyline.getBounds());
+
+        var marker = L.marker([55.162268, 30.111972]
+        ).addTo(map);
+        var marker_1 = L.marker([55.163709, 30.118543]
+        ).addTo(map);
+        var marker_2= L.marker([55.165586, 30.123968]
+        ).addTo(map);
+        var marker_4= L.marker([55.167803, 30.130329]
+        ).addTo(map);
+        var marker_5= L.marker([55.170072, 30.136643]
+        ).addTo(map);
+        var marker_6= L.marker([55.171865, 30.141921]
+        ).addTo(map);
+        var marker_7= L.marker([55.176375, 30.150622]
+        ).addTo(map);
+        var marker_8= L.marker([55.173407, 30.150649]
+        ).addTo(map);
+        var marker_9= L.marker([55.179307, 30.150517]
+        ).addTo(map);
+        var marker_10= L.marker([55.180696, 30.153677]
+        ).addTo(map);
+        var marker_11= L.marker([55.182385, 30.158671]
+        ).addTo(map);
+        var marker_12= L.marker([55.184607, 30.164211]
+        ).addTo(map);
+        var marker_13= L.marker([55.186130, 30.168108]
+        ).addTo(map);
+        var marker_14= L.marker([55.187770, 30.172609]
+        ).addTo(map);
+        var marker_15= L.marker([55.189990, 30.178493]
+        ).addTo(map);
+        var marker_16= L.marker([55.192495, 30.180793]
+        ).addTo(map);
+        var marker_17= L.marker([55.197288, 30.179355]
+        ).addTo(map);
+        var marker_18= L.marker([55.198886, 30.181725]
+        ).addTo(map);
+        var marker_19= L.marker([55.196736, 30.188936]
+        ).addTo(map);
+        var marker_20= L.marker([55.194653, 30.189426]
+        ).addTo(map);
+        var marker_21= L.marker([55.194039, 30.193933]
+        ).addTo(map);
+        var marker_22= L.marker([55.193014, 30.202250]
+        ).addTo(map);
+        var marker_23= L.marker([55.195365, 30.206729]
+        ).addTo(map);
+        var marker_24= L.marker([55.199401, 30.207348]
+        ).addTo(map);
+        var marker_25= L.marker([55.201650, 30.209018]
+        ).addTo(map);
+        var marker_26= L.marker([55.203293, 30.211970]
+        ).addTo(map);
+        var marker_27= L.marker([55.205681, 30.209010]
+        ).addTo(map);
+        var marker_28= L.marker([55.209099, 30.211162]
+        ).addTo(map);
+        var marker_29= L.marker([55.212642, 30.210373]
+        ).addTo(map);
+        var marker_30= L.marker([55.215846, 30.210038]
+        ).addTo(map);
+        var marker_31= L.marker([55.221574, 30.208655]
+        ).addTo(map);
+        var marker_32= L.marker([55.226539, 30.211656]
+        ).addTo(map);
+
+        marker.bindPopup("<b>Витебскречтранс</b>").openPopup();
+        marker_1.bindPopup("<b>9-я Социалистическая улица</b>").openPopup();
+        marker_2.bindPopup("<b>Улица Максима Горького</b>").openPopup();
+        marker_4.bindPopup("<b>Улица 39-й армии</b>").openPopup();
+        marker_5.bindPopup("<b>Витебская ТЭЦ</b>").openPopup();
+        marker_6.bindPopup("<b>2-я горбольница</b>").openPopup();
+        marker_7.bindPopup("<b>ОАО «Витебские ковры»</b>").openPopup();
+        marker_8.bindPopup("<b>1-я Пролетарская улица</b>").openPopup();
+        marker_9.bindPopup("<b>4-я Прядильная улица</b>").openPopup();
+        marker_10.bindPopup("<b>Улица Карла Маркса</b>").openPopup();
+        marker_11.bindPopup("<b>12-я улица Бебеля</b>").openPopup();
+        marker_12.bindPopup("<b>9-я улица Бебеля</b>").openPopup();
+        marker_13.bindPopup("<b>Магазин №54</b>").openPopup();
+        marker_14.bindPopup("<b>Школа №8</b>").openPopup();
+        marker_15.bindPopup("<b>3-я улица Бебеля</b>").openPopup();
+        marker_16.bindPopup("<b>Улица Некрасова</b>").openPopup();
+        marker_17.bindPopup("<b>Улица Леонова</b>").openPopup();
+        marker_18.bindPopup("<b>Полоцкий рынок</b>").openPopup();
+        marker_19.bindPopup("<b>Автовокзал</b>").openPopup();
+        marker_20.bindPopup("<b>Железнодорожный вокзал</b>").openPopup();
+        marker_21.bindPopup("<b>Комсомольская улица</b>").openPopup();
+        marker_22.bindPopup("<b>Драмтеатр</b>").openPopup();
+        marker_23.bindPopup("<b>Ратуша</b>").openPopup();
+        marker_24.bindPopup("<b>Советская улица</b>").openPopup();
+        marker_25.bindPopup("<b>Площадь Ленина</b>").openPopup();
+        marker_26.bindPopup("<b>Коммунистическая улица</b>").openPopup();
+        marker_27.bindPopup("<b>Смоленский рынок</b>").openPopup();
+        marker_28.bindPopup("<b>Улица Володарского</b>").openPopup();
+        marker_29.bindPopup("<b>1-я Великолукская улицаа</b>").openPopup();
+        marker_30.bindPopup("<b>Аптекоуправление</b>").openPopup();
+        marker_31.bindPopup("<b>Ольгово</b>").openPopup();
+        marker_32.bindPopup("<b>Пос. Ольгово</b>").openPopup();
+
+
+    </script>
+{% endblock %}
